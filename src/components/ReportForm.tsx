@@ -30,7 +30,8 @@ export default function ReportForm({ type }: { type: "hilang" | "ditemukan" }) {
     setWaError(ok ? null : "Nomor WhatsApp tidak valid. Gunakan format 08xxxxxxxxxx (10–15 digit).");
     return ok;
   }
-  const today = new Date().toLocaleDateString("en-CA"); // local YYYY-MM-DD (toISOString is UTC, a day behind in WIB mornings)
+  // campus date (WIB) on the server and in the browser alike: Vercel renders in UTC, a day behind on WIB mornings
+  const today = new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Jakarta" });
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
