@@ -1,0 +1,32 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "instrument sans",
+        "createdAt": "2026-11-21T16:13:45.883Z",
+        "reason": "taste-skill deal: start.mjs dealt the 'instrument' pairing for this software page and the skill requires taking the first dealt pairing"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "public/assets/moments/line-carries-colour/demo.html"
+        ],
+        "createdAt": "2026-11-21T16:13:46.074Z",
+        "reason": "taste-skill kit demo copied with the moment; not served by any page and kit files are never edited"
+      },
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "public/assets/ui/search/fragment.css"
+        ],
+        "createdAt": "2026-11-21T16:18:29.440Z",
+        "reason": "taste-skill kit fragment CSS copied as-is (selected search row marker); kit files are never edited"
+      }
+    ]
+  }
+}

@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-instrument);
+
+  /* brand */
+  --color-brand: #1f6b3a;       /* the dealt mint-pink-accounts accent: white on it 6.5:1, it on the page 6.1:1 */
+  --color-brand-dark: #16502b;
+
+  /* status — one meaning per token */
+  --color-lost: #c2410c;        /* laporan "Hilang" (oranye, beda dari error) */
+  --color-lost-soft: #fff7ed;
+  --color-lost-line: #fed7aa;
+  --color-found: #047857;       /* "Ditemukan", sukses, WhatsApp — putih di atasnya 5.5:1 */
+  --color-found-dark: #065f46;
+  --color-found-soft: #ecfdf5;
+  --color-found-line: #a7f3d0;
+  --color-warn: #78350f;        /* peringatan & kode laporan */
+  --color-warn-soft: #fffbeb;
+  --color-warn-line: #fde68a;
+  --color-danger: #b91c1c;      /* error & hapus */
+  --color-danger-dark: #991b1b;
+  --color-danger-soft: #fef2f2;
+  --color-danger-line: #fecaca;
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex min-h-11 cursor-pointer items-center justify-center gap-2 rounded-lg px-5 font-semibold transition-colors duration-200 disabled:cursor-not-allowed disabled:opacity-70;
+  }
+  .btn-primary {
+    @apply bg-brand text-white hover:bg-brand-dark;
+  }
+  .btn-secondary {
+    @apply border border-slate-300 bg-white text-slate-800 hover:bg-slate-50;
+  }
+  .btn-success {
+    @apply bg-found text-white hover:bg-found-dark;
+  }
+  .btn-danger {
+    @apply bg-danger text-white hover:bg-danger-dark;
+  }
+  .btn-danger-outline {
+    @apply border border-danger-line bg-white text-danger hover:bg-danger-soft;
+  }
+  .field {
+    @apply min-h-11 w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 transition-colors duration-200 placeholder:text-slate-500 focus:border-brand;
+  }
+}
+
+body {
+  background: #f8f8f8;
+  color: #0a0a0a;
+}
+
+/* unlayered so it beats any utility; the accent is 6.1:1 on the light surfaces every control sits on */
+/* literal hex: @theme inline emits no runtime CSS variables */
+:focus-visible {
+  outline: 3px solid #1f6b3a;
+  outline-offset: 2px;
+  /* the ring appears at once: transition-colors would otherwise fade outline-color in */
+  transition-property: color, background-color, border-color, box-shadow;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
